@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="GAP_VFX_BeginnerCourse"
+config/name="GodotVFX"
 run/main_scene="uid://jf6lhabdtxqs"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
