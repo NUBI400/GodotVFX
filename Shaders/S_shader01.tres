@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=12 format=3 uid="uid://2xvtnrjmvrry"]
+[gd_resource type="VisualShader" load_steps=16 format=3 uid="uid://2xvtnrjmvrry"]
 
 [sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_hiry7"]
 parameter_name = "Mask"
@@ -33,15 +33,65 @@ parameter_name = "Speed"
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_fvtvk"]
 operator = 2
 
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_hiry7"]
+parameter_name = "BilBoard"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeBillboard" id="VisualShaderNodeBillboard_4ylfr"]
+billboard_type = 3
+keep_scale = true
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_4fiou"]
+input_name = "modelview_matrix"
+
+[sub_resource type="VisualShaderNodeSwitch" id="VisualShaderNodeSwitch_fvtvk"]
+default_input_values = [0, false, 1, Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0), 2, Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+op_type = 7
+
 [resource]
 code = "shader_type spatial;
 render_mode blend_add, depth_draw_opaque, depth_test_default, cull_disabled, diffuse_lambert, specular_schlick_ggx, unshaded;
 
+uniform bool BilBoard = false;
 uniform vec2 Speed;
 uniform sampler2D MainTex;
 uniform sampler2D Mask;
 
 
+
+void vertex() {
+// BooleanParameter:2
+	bool n_out2p0 = BilBoard;
+
+
+	mat4 n_out3p0;
+// GetBillboardMatrix:3
+	{
+		mat4 __wm = mat4(normalize(INV_VIEW_MATRIX[0]), normalize(INV_VIEW_MATRIX[1]), normalize(INV_VIEW_MATRIX[2]), MODEL_MATRIX[3]);
+		__wm = __wm * mat4(vec4(cos(INSTANCE_CUSTOM.x), -sin(INSTANCE_CUSTOM.x), 0.0, 0.0), vec4(sin(INSTANCE_CUSTOM.x), cos(INSTANCE_CUSTOM.x), 0.0, 0.0), vec4(0.0, 0.0, 1.0, 0.0), vec4(0.0, 0.0, 0.0, 1.0));
+		__wm = __wm * mat4(vec4(length(MODEL_MATRIX[0].xyz), 0.0, 0.0, 0.0), vec4(0.0, length(MODEL_MATRIX[1].xyz), 0.0, 0.0), vec4(0.0, 0.0, length(MODEL_MATRIX[2].xyz), 0.0), vec4(0.0, 0.0, 0.0, 1.0));
+		n_out3p0 = VIEW_MATRIX * __wm;
+	}
+
+
+// Input:4
+	mat4 n_out4p0 = MODELVIEW_MATRIX;
+
+
+	mat4 n_out5p0;
+// Switch:5
+	if (n_out2p0) {
+		n_out5p0 = n_out3p0;
+	} else {
+		n_out5p0 = n_out4p0;
+	}
+
+
+// Output:0
+	MODELVIEW_MATRIX = n_out5p0;
+
+
+}
 
 void fragment() {
 // Input:2
@@ -95,7 +145,16 @@ modes/blend = 1
 modes/cull = 2
 flags/unshaded = true
 nodes/vertex/0/position = Vector2(560, 80)
-nodes/fragment/0/position = Vector2(760, 200)
+nodes/vertex/2/node = SubResource("VisualShaderNodeBooleanParameter_hiry7")
+nodes/vertex/2/position = Vector2(-140, 260)
+nodes/vertex/3/node = SubResource("VisualShaderNodeBillboard_4ylfr")
+nodes/vertex/3/position = Vector2(-100, 480)
+nodes/vertex/4/node = SubResource("VisualShaderNodeInput_4fiou")
+nodes/vertex/4/position = Vector2(-60, 680)
+nodes/vertex/5/node = SubResource("VisualShaderNodeSwitch_fvtvk")
+nodes/vertex/5/position = Vector2(280, 460)
+nodes/vertex/connections = PackedInt32Array(5, 0, 0, 10, 4, 0, 5, 2, 2, 0, 5, 0, 3, 0, 5, 1)
+nodes/fragment/0/position = Vector2(1220, 180)
 nodes/fragment/2/node = SubResource("VisualShaderNodeInput_hiry7")
 nodes/fragment/2/position = Vector2(40, 180)
 nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_4ylfr")
@@ -118,4 +177,4 @@ nodes/fragment/11/node = SubResource("VisualShaderNodeTexture_4fiou")
 nodes/fragment/11/position = Vector2(-300, 820)
 nodes/fragment/12/node = SubResource("VisualShaderNodeFloatOp_nlxpb")
 nodes/fragment/12/position = Vector2(60, 580)
-nodes/fragment/connections = PackedInt32Array(4, 0, 3, 2, 6, 0, 3, 0, 7, 0, 9, 0, 8, 0, 9, 1, 9, 0, 6, 2, 10, 0, 11, 2, 3, 0, 12, 0, 11, 0, 12, 1, 12, 0, 5, 1, 2, 4, 5, 0, 5, 0, 0, 1, 2, 0, 0, 0)
+nodes/fragment/connections = PackedInt32Array(4, 0, 3, 2, 6, 0, 3, 0, 7, 0, 9, 0, 8, 0, 9, 1, 9, 0, 6, 2, 10, 0, 11, 2, 3, 0, 12, 0, 11, 0, 12, 1, 12, 0, 5, 1, 2, 4, 5, 0, 2, 0, 0, 0, 5, 0, 0, 1)
