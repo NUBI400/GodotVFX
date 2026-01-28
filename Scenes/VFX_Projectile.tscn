@@ -4,9 +4,7 @@
 [ext_resource type="Script" uid="uid://dq7h3nectp4hy" path="res://Scripts/camera.gd" id="3_ynfkw"]
 [ext_resource type="ArrayMesh" uid="uid://cmswy8js5ghvq" path="res://Models/Mountains.obj" id="4_qjsfk"]
 [ext_resource type="Script" uid="uid://b86hxdolpatb8" path="res://Scripts/RotateToMouse2.gd" id="5_5wsiv"]
-
-[sub_resource type="Resource" id="Resource_h7mdb"]
-metadata/__load_path__ = "res://Prefabs/vfx_projectile_01.tscn"
+[ext_resource type="PackedScene" uid="uid://kci7jweltgf2" path="res://Prefabs/vfx_projectile_01.tscn" id="5_idti0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_338y4"]
 sky_energy_multiplier = 0.65
@@ -46,7 +44,7 @@ size = Vector3(1.34387, 1, 1)
 
 [node name="World" type="Node3D" node_paths=PackedStringArray("rotate_to_mouse", "fire_point")]
 script = ExtResource("1_idti0")
-projectile_prefab = SubResource("Resource_h7mdb")
+projectile_prefab = ExtResource("5_idti0")
 rotate_to_mouse = NodePath("Scene/CSGSphere3D")
 fire_point = NodePath("Scene/CSGSphere3D/CSGBox3D/FirePoint")
 

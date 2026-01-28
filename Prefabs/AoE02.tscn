@@ -1,8 +1,7 @@
-[gd_scene load_steps=179 format=3 uid="uid://nef8v330dc3f"]
+[gd_scene load_steps=178 format=3 uid="uid://nef8v330dc3f"]
 
 [ext_resource type="Script" uid="uid://dxhfn5g0spoim" path="res://Scripts/PlayParticleSystems.gd" id="1_b0u3q"]
 [ext_resource type="Texture2D" uid="uid://dniclw5fwojkh" path="res://Textures/Bean01.png" id="2_ftca0"]
-[ext_resource type="Texture2D" uid="uid://oo2jen6wtc2" path="res://Textures/Texture05.png" id="3_01cho"]
 [ext_resource type="ArrayMesh" uid="uid://864w5ujiohi3" path="res://Models/Cylinder.obj" id="4_6srd5"]
 [ext_resource type="Texture2D" uid="uid://ckojshxewm71j" path="res://Textures/Circle01.png" id="5_wmxf1"]
 [ext_resource type="Texture2D" uid="uid://c1wr8i13jps0w" path="res://Textures/Flare02.png" id="6_8dkf4"]
@@ -263,7 +262,7 @@ render_priority = 0
 shader = SubResource("VisualShader_3xb71")
 shader_parameter/BilBoard = false
 shader_parameter/Speed = Vector2(-0.4, -1)
-shader_parameter/MainTex = ExtResource("3_01cho")
+shader_parameter/MainTex = ExtResource("11_2rswp")
 shader_parameter/Mask = SubResource("GradientTexture2D_du5ag")
 
 [sub_resource type="Curve" id="Curve_f3guv"]
@@ -1290,10 +1289,8 @@ draw_pass_1 = SubResource("QuadMesh_ufqdh")
 [node name="Cylinder" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 material_override = SubResource("ShaderMaterial_2s3td")
-emitting = false
 amount = 1
 lifetime = 0.6
-one_shot = true
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_2dm04")
 draw_pass_1 = ExtResource("4_6srd5")

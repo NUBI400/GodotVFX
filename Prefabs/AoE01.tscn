@@ -537,7 +537,6 @@ draw_pass_1 = ExtResource("12_o3qwd")
 [node name="GroundMarkBright" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.99, 0)
 material_override = SubResource("StandardMaterial3D_3ldrp")
-emitting = false
 amount = 1
 lifetime = 1.9
 one_shot = true
@@ -548,7 +547,6 @@ draw_pass_1 = SubResource("QuadMesh_xvvcx")
 [node name="GroundMarkDark" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.99, 0)
 material_override = SubResource("StandardMaterial3D_gktvk")
-emitting = false
 amount = 1
 lifetime = 1.9
 one_shot = true
@@ -559,7 +557,6 @@ draw_pass_1 = SubResource("QuadMesh_xvvcx")
 [node name="GroundBeamDark" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.99, 0)
 material_override = SubResource("StandardMaterial3D_1aicl")
-emitting = false
 amount = 1
 lifetime = 6.0
 one_shot = true
