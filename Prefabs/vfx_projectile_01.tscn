@@ -834,7 +834,7 @@ render_priority = 0
 shader = ExtResource("7_lv758")
 shader_parameter/tex = SubResource("CompressedTexture2D_ifcyl")
 shader_parameter/mask_strength = 1.0
-shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/uv_offset = Vector2(0.42014456, 0)
 shader_parameter/color_ramp = SubResource("GradientTexture1D_w1adx")
 shader_parameter/curve = SubResource("CurveTexture_raplc")
 shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
@@ -843,42 +843,43 @@ shader_parameter/flags = 46
 [sub_resource type="QuadMesh" id="QuadMesh_lv758"]
 material = SubResource("ShaderMaterial_djibl")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w3quw"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fm6on"]
 shader = ExtResource("6_djibl")
 
-[sub_resource type="Gradient" id="Gradient_w3quw"]
+[sub_resource type="Gradient" id="Gradient_w1adx"]
 colors = PackedColorArray(0.07, 0.02, 0, 1, 0.07016479, 0.025840001, 0, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_63fsi"]
-gradient = SubResource("Gradient_w3quw")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kmv3p"]
+gradient = SubResource("Gradient_w1adx")
 use_hdr = true
 
-[sub_resource type="Curve" id="Curve_ho0yf"]
+[sub_resource type="Curve" id="Curve_raplc"]
 _limits = [0.0, 0.8, 0.0, 1.0]
 _data = [Vector2(0, 0), 0.0, 1.9781524, 0, 0, Vector2(1, 0.8), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_6223n"]
-curve = SubResource("Curve_ho0yf")
+[sub_resource type="CurveTexture" id="CurveTexture_ud02h"]
+curve = SubResource("Curve_raplc")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_25dc1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lv758"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("7_lv758")
 shader_parameter/tex = ExtResource("8_b25s5")
 shader_parameter/mask_strength = 1.0
-shader_parameter/uv_offset = Vector2(0.074067235, 0)
-shader_parameter/color_ramp = SubResource("GradientTexture1D_63fsi")
-shader_parameter/curve = SubResource("CurveTexture_6223n")
+shader_parameter/uv_offset = Vector2(0.8024808, 0)
+shader_parameter/color_ramp = SubResource("GradientTexture1D_kmv3p")
+shader_parameter/curve = SubResource("CurveTexture_ud02h")
 shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
 shader_parameter/flags = 46
 
-[sub_resource type="QuadMesh" id="QuadMesh_mi1v0"]
-material = SubResource("ShaderMaterial_25dc1")
+[sub_resource type="QuadMesh" id="QuadMesh_b25s5"]
+material = SubResource("ShaderMaterial_lv758")
 
 [node name="vfx_Projectile01" type="RigidBody3D" node_paths=PackedStringArray("trails")]
 script = ExtResource("1_ifcyl")
 speed = 14.0
+delay_trails_start = 0.02
 trails = [NodePath("TrailBright"), NodePath("TrailDark")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -953,6 +954,7 @@ script = ExtResource("9_8k1ck")
 length = 12
 length_seconds = 0.2
 texture = SubResource("CompressedTexture2D_ifcyl")
+scroll = Vector2(2.5, 0)
 color_ramp = SubResource("GradientTexture1D_w1adx")
 curve = SubResource("CurveTexture_raplc")
 use_red_as_alpha = true
@@ -961,20 +963,20 @@ _defaults_have_been_set = true
 metadata/_custom_type_script = "uid://bwjys5a2acv3p"
 
 [node name="TrailDark" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.15814412)
 amount = 19
 lifetime = 19.0
 explosiveness = 1.0
 fixed_fps = 60
-process_material = SubResource("ShaderMaterial_w3quw")
-draw_pass_1 = SubResource("QuadMesh_mi1v0")
+process_material = SubResource("ShaderMaterial_fm6on")
+draw_pass_1 = SubResource("QuadMesh_b25s5")
 script = ExtResource("9_8k1ck")
 length = 19
 length_seconds = 0.31666666666666665
 texture = ExtResource("8_b25s5")
 scroll = Vector2(2, 0)
-color_ramp = SubResource("GradientTexture1D_63fsi")
-curve = SubResource("CurveTexture_6223n")
+color_ramp = SubResource("GradientTexture1D_kmv3p")
+curve = SubResource("CurveTexture_ud02h")
 use_red_as_alpha = true
 billboard = true
 _defaults_have_been_set = true
+metadata/_custom_type_script = "uid://bwjys5a2acv3p"

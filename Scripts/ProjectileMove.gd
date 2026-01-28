@@ -59,10 +59,10 @@ func delay_trails():
 	
 	for trail in trails:
 		if is_instance_valid(trail):
-			trail.speed_scale = 0  # Stop movement initially, avoids glitches
+			trail.emitting = false  # Stop movement initially, avoids glitches
 
 	await get_tree().create_timer(delay_trails_start).timeout
 
 	for trail in trails:
 		if is_instance_valid(trail):
-			trail.speed_scale = 1  # Resume movement
+			trail.emitting = true  # Resume movement
