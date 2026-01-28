@@ -1,14 +1,14 @@
-[gd_scene load_steps=117 format=3 uid="uid://kci7jweltgf2"]
+[gd_scene load_steps=118 format=3 uid="uid://kci7jweltgf2"]
 
 [ext_resource type="Script" uid="uid://srxbm3tbdhyu" path="res://Scripts/ProjectileMove.gd" id="1_ifcyl"]
 [ext_resource type="Shader" uid="uid://2xvtnrjmvrry" path="res://Shaders/S_shader01.tres" id="2_w1adx"]
 [ext_resource type="Texture2D" uid="uid://cbt4jhalom0m1" path="res://Textures/Texture02.png" id="3_kmv3p"]
 [ext_resource type="ArrayMesh" uid="uid://bg6ybkyteuywl" path="res://Models/Capsule01.obj" id="4_raplc"]
 [ext_resource type="Texture2D" uid="uid://dniclw5fwojkh" path="res://Textures/Bean01.png" id="5_ud02h"]
-[ext_resource type="Shader" uid="uid://x3g5fson40t2" path="res://GPUTrail-main/shaders/trail.gdshader" id="6_djibl"]
-[ext_resource type="Shader" uid="uid://7xkxpgsmixhn" path="res://GPUTrail-main/shaders/trail_draw_pass.gdshader" id="7_lv758"]
+[ext_resource type="Shader" uid="uid://dieqmmvf8js50" path="res://GPUTrail-main/shaders/trail.gdshader" id="6_djibl"]
+[ext_resource type="Shader" uid="uid://doqlyeliog5ux" path="res://GPUTrail-main/shaders/trail_draw_pass.gdshader" id="7_lv758"]
 [ext_resource type="Texture2D" uid="uid://bnxcsx8ayydf1" path="res://Textures/Trail01.png" id="8_b25s5"]
-[ext_resource type="Script" uid="uid://cx8ohpp5vs5os" path="res://GPUTrail-main/GPUTrail3D.gd" id="9_8k1ck"]
+[ext_resource type="Script" uid="uid://bwjys5a2acv3p" path="res://GPUTrail-main/GPUTrail3D.gd" id="9_8k1ck"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h7mdb"]
 
@@ -806,38 +806,42 @@ alpha_curve = SubResource("CurveTexture_w3quw")
 
 [sub_resource type="QuadMesh" id="QuadMesh_ho0yf"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_63fsi"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ifcyl"]
 shader = ExtResource("6_djibl")
 
-[sub_resource type="Gradient" id="Gradient_stkbr"]
+[sub_resource type="Gradient" id="Gradient_ifcyl"]
 offsets = PackedFloat32Array(0, 0.5739514, 1)
 colors = PackedColorArray(6, 3, 1, 1, 5.9998055, 3.0021818, 0.99752074, 0.08388519, 5.999788, 3.0023816, 0.9972937, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_w3quw"]
-gradient = SubResource("Gradient_stkbr")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_w1adx"]
+gradient = SubResource("Gradient_ifcyl")
 use_hdr = true
 
-[sub_resource type="Curve" id="Curve_w3quw"]
+[sub_resource type="Curve" id="Curve_kmv3p"]
 _limits = [0.0, 0.8, 0.0, 1.0]
 _data = [Vector2(0, 0), 0.0, 1.9781524, 0, 0, Vector2(1, 0.8), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_mi1v0"]
-curve = SubResource("Curve_w3quw")
+[sub_resource type="CurveTexture" id="CurveTexture_raplc"]
+curve = SubResource("Curve_kmv3p")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_p4nq4"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ifcyl"]
+load_path = "res://.godot/imported/Trail01.png-0478ba7b1f1973ed5be14bd5a00d89d9.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_djibl"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("7_lv758")
-shader_parameter/tex = ExtResource("8_b25s5")
-shader_parameter/uv_offset = Vector2(0.6724006, 0)
-shader_parameter/color_ramp = SubResource("GradientTexture1D_w3quw")
-shader_parameter/curve = SubResource("CurveTexture_mi1v0")
+shader_parameter/tex = SubResource("CompressedTexture2D_ifcyl")
+shader_parameter/mask_strength = 1.0
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/color_ramp = SubResource("GradientTexture1D_w1adx")
+shader_parameter/curve = SubResource("CurveTexture_raplc")
 shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
 shader_parameter/flags = 46
 
-[sub_resource type="QuadMesh" id="QuadMesh_s3fvn"]
-material = SubResource("ShaderMaterial_p4nq4")
+[sub_resource type="QuadMesh" id="QuadMesh_lv758"]
+material = SubResource("ShaderMaterial_djibl")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w3quw"]
 shader = ExtResource("6_djibl")
@@ -862,7 +866,8 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("7_lv758")
 shader_parameter/tex = ExtResource("8_b25s5")
-shader_parameter/uv_offset = Vector2(0.8361018, 0)
+shader_parameter/mask_strength = 1.0
+shader_parameter/uv_offset = Vector2(0.074067235, 0)
 shader_parameter/color_ramp = SubResource("GradientTexture1D_63fsi")
 shader_parameter/curve = SubResource("CurveTexture_6223n")
 shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
@@ -937,24 +942,23 @@ process_material = SubResource("ParticleProcessMaterial_6223n")
 draw_pass_1 = SubResource("QuadMesh_ho0yf")
 
 [node name="TrailBright" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.21294439)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.35473436)
 amount = 12
 lifetime = 12.0
 explosiveness = 1.0
 fixed_fps = 60
-process_material = SubResource("ShaderMaterial_63fsi")
-draw_pass_1 = SubResource("QuadMesh_s3fvn")
+process_material = SubResource("ShaderMaterial_ifcyl")
+draw_pass_1 = SubResource("QuadMesh_lv758")
 script = ExtResource("9_8k1ck")
 length = 12
 length_seconds = 0.2
-texture = ExtResource("8_b25s5")
-scroll = Vector2(2.5, 0)
-color_ramp = SubResource("GradientTexture1D_w3quw")
-curve = SubResource("CurveTexture_mi1v0")
+texture = SubResource("CompressedTexture2D_ifcyl")
+color_ramp = SubResource("GradientTexture1D_w1adx")
+curve = SubResource("CurveTexture_raplc")
 use_red_as_alpha = true
 billboard = true
 _defaults_have_been_set = true
-metadata/_custom_type_script = "uid://cx8ohpp5vs5os"
+metadata/_custom_type_script = "uid://bwjys5a2acv3p"
 
 [node name="TrailDark" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.15814412)
@@ -974,4 +978,3 @@ curve = SubResource("CurveTexture_6223n")
 use_red_as_alpha = true
 billboard = true
 _defaults_have_been_set = true
-metadata/_custom_type_script = "uid://cx8ohpp5vs5os"
