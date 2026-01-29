@@ -349,7 +349,7 @@ distance_fade_max_distance = 0.0
 _data = [Vector2(1e-05, 0), 0.0, 4.2378917, 0, 0, Vector2(0.5011494, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_j05pk"]
+[sub_resource type="CurveTexture" id="CurveTexture_n3etm"]
 curve = SubResource("Curve_2dm04")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e42jx"]
@@ -358,7 +358,7 @@ angle_max = 360.00003
 gravity = Vector3(0, 0, 0)
 scale_min = 10.0
 scale_max = 15.0
-scale_curve = SubResource("CurveTexture_j05pk")
+scale_curve = SubResource("CurveTexture_n3etm")
 color = Color(2.454227, 0.9857998, 0.62131935, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_3ldrp"]
@@ -1289,8 +1289,10 @@ draw_pass_1 = SubResource("QuadMesh_ufqdh")
 [node name="Cylinder" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 material_override = SubResource("ShaderMaterial_2s3td")
+emitting = false
 amount = 1
 lifetime = 0.6
+one_shot = true
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_2dm04")
 draw_pass_1 = ExtResource("4_6srd5")

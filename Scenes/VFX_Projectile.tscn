@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dq7h3nectp4hy" path="res://Scripts/camera.gd" id="3_ynfkw"]
 [ext_resource type="ArrayMesh" uid="uid://cmswy8js5ghvq" path="res://Models/Mountains.obj" id="4_qjsfk"]
 [ext_resource type="Script" uid="uid://b86hxdolpatb8" path="res://Scripts/RotateToMouse2.gd" id="5_5wsiv"]
-[ext_resource type="PackedScene" uid="uid://kci7jweltgf2" path="res://Prefabs/vfx_projectile_01.tscn" id="5_idti0"]
+[ext_resource type="PackedScene" uid="uid://kci7jweltgf2" path="res://Prefabs/vfx_Projectile_01.tscn" id="5_idti0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_338y4"]
 sky_energy_multiplier = 0.65

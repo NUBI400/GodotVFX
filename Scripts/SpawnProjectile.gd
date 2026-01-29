@@ -6,6 +6,15 @@ extends Node3D
 @export var rotate_to_mouse: Node3D
 @export var fire_point: Node3D
 
+
+const VFX_PROJECTILE_01 = preload("uid://kci7jweltgf2")
+const VFX_PROJECTILE_01_IMPACT = preload("uid://dw3s15ubej8p7")
+const VFX_PROJECTILE_01_MUZZLE = preload("uid://ukbl6m6hc7o")
+const AO_E_01 = preload("uid://ccbxgocynnlbu")
+const AO_E_02 = preload("uid://nef8v330dc3f")
+
+
+
 var can_fire: bool = true
 
 func _process(_delta):

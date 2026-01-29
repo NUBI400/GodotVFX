@@ -1297,7 +1297,7 @@ color = Color(0, 0, 0, 1)
 [node name="World" type="Node3D" node_paths=PackedStringArray("camera")]
 script = ExtResource("1_uhfrq")
 camera = NodePath("Scene/Camera3D")
-aoe_prefab = ExtResource("4_8421t")
+aoe_prefab = ExtResource("5_8h1p3")
 
 [node name="Scene" type="Node" parent="."]
 
