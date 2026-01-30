@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b0vaowxttrtqy"
+path="res://.godot/imported/Capsule02.obj-dc445a094f46135ec45b5c7cdff5ac56.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Capsule02.obj-dc445a094f46135ec45b5c7cdff5ac56.mesh"]
+
+source_file="res://Models/Capsule02.obj"
+dest_files=["res://.godot/imported/Capsule02.obj-dc445a094f46135ec45b5c7cdff5ac56.mesh", "res://.godot/imported/Capsule02.obj-dc445a094f46135ec45b5c7cdff5ac56.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
