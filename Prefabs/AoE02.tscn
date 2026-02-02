@@ -1391,7 +1391,6 @@ draw_pass_1 = SubResource("QuadMesh_xvvcx")
 [node name="GroundBeamDark" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.99, 0)
 material_override = SubResource("StandardMaterial3D_1aicl")
-emitting = false
 amount = 1
 lifetime = 6.0
 one_shot = true

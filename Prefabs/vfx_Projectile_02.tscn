@@ -1,10 +1,11 @@
-[gd_scene load_steps=132 format=3 uid="uid://bjuapqaf2ygmp"]
+[gd_scene load_steps=133 format=3 uid="uid://bjuapqaf2ygmp"]
 
 [ext_resource type="Script" uid="uid://srxbm3tbdhyu" path="res://Scripts/ProjectileMove.gd" id="1_0yx1p"]
 [ext_resource type="Texture2D" uid="uid://c6oigwc373ly2" path="res://Textures/Texture04.png" id="1_r7asc"]
 [ext_resource type="ArrayMesh" uid="uid://b0vaowxttrtqy" path="res://Models/Capsule02.obj" id="2_0yx1p"]
 [ext_resource type="PackedScene" uid="uid://bqjqqn38d0h5y" path="res://Prefabs/vfx_Projectile_02_Muzzle.tscn" id="2_1pjmk"]
 [ext_resource type="Texture2D" uid="uid://dniclw5fwojkh" path="res://Textures/Bean01.png" id="3_1pjmk"]
+[ext_resource type="PackedScene" uid="uid://c4hov23tx6iaa" path="res://Prefabs/vfx_projectile_02_Impact.tscn" id="3_ni6ra"]
 [ext_resource type="Shader" uid="uid://dieqmmvf8js50" path="res://GPUTrail-main/shaders/trail.gdshader" id="4_ni6ra"]
 [ext_resource type="Shader" uid="uid://doqlyeliog5ux" path="res://GPUTrail-main/shaders/trail_draw_pass.gdshader" id="5_vmgkd"]
 [ext_resource type="Script" uid="uid://bwjys5a2acv3p" path="res://GPUTrail-main/GPUTrail3D.gd" id="6_77yqr"]
@@ -210,7 +211,7 @@ shader_parameter/Mask = SubResource("GradientTexture2D_j4gue")
 gravity = Vector3(0, 0, 0)
 scale_min = 0.5
 scale_max = 0.5
-color = Color(0.5, 1, 2.5, 1)
+color = Color(1, 2, 5, 1)
 
 [sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_63fsi"]
 parameter_name = "Mask"
@@ -631,7 +632,7 @@ shader_parameter/Mask = SubResource("GradientTexture2D_gnfei")
 gravity = Vector3(0, 0, 0)
 scale_min = 0.5
 scale_max = 0.5
-color = Color(1, 2, 4, 1)
+color = Color(2, 4, 8, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dnss"]
 render_priority = 1
@@ -1006,7 +1007,7 @@ render_priority = 0
 shader = ExtResource("5_vmgkd")
 shader_parameter/tex = ExtResource("6_r7asc")
 shader_parameter/mask_strength = 1.0
-shader_parameter/uv_offset = Vector2(0.2694275, 0)
+shader_parameter/uv_offset = Vector2(0.24764206, 0)
 shader_parameter/color_ramp = SubResource("GradientTexture1D_63fsi")
 shader_parameter/curve = SubResource("CurveTexture_mi1v0")
 shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
@@ -1038,7 +1039,7 @@ render_priority = 0
 shader = ExtResource("5_vmgkd")
 shader_parameter/tex = ExtResource("6_r7asc")
 shader_parameter/mask_strength = 1.0
-shader_parameter/uv_offset = Vector2(0.224544, 0)
+shader_parameter/uv_offset = Vector2(0.70622003, 0)
 shader_parameter/color_ramp = SubResource("GradientTexture1D_ho0yf")
 shader_parameter/curve = SubResource("CurveTexture_p4nq4")
 shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
@@ -1051,6 +1052,7 @@ material = SubResource("ShaderMaterial_s3fvn")
 script = ExtResource("1_0yx1p")
 speed = 14.0
 muzzle_prefab = ExtResource("2_1pjmk")
+impact_prefab = ExtResource("3_ni6ra")
 delay_trails_start = 0.05
 trails = [NodePath("TrailBright"), NodePath("TrailDark")]
 
